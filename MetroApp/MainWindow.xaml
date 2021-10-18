@@ -115,6 +115,4 @@
                             OptionsItemTemplate="{StaticResource MenuItemTemplate}"
                             OptionsItemsSource="{Binding OptionsMenu}"
                             Visibility="Hidden"/>
-
-
 </mah:MetroWindow>

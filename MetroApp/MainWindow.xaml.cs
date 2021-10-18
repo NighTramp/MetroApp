@@ -7,7 +7,6 @@ using System.Windows.Navigation;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MetroApp.Naviganion;
-using LoginDialog = MetroApp.Core.Dialog.LoginDialog;
 using MenuItem = MetroApp.ViewModels.MenuItem;
 
 namespace MetroApp
@@ -18,8 +17,6 @@ namespace MetroApp
     public partial class MainWindow : MetroWindow
     {
         private readonly NavigationServiceEx navigationServiceEx;
-
-        public LoginDialog LoginDialog;
 
         public MainWindow()
         {
@@ -63,7 +60,6 @@ namespace MetroApp
                     if (result.Username == "Admin" && result.Password == "Gfhjkm123!")
                     {
                         //MessageDialogResult messageResult = await this.ShowMessageAsync("Авторизация", "Вход успешно выполнен");
-                        this.ShowProgressAsync("Пользователь " + result.Username.ToString() + " авторизован.", "Идет загрузка");
                         a = true;
                     }
                     else
