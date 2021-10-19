@@ -5,10 +5,12 @@
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                  xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                  xmlns:viewModels="clr-namespace:MetroApp.ViewModels"
+                 xmlns:metroApp="clr-namespace:MetroApp"
+                 xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
                  Title="Инвентаризация"
                  Width="790"
                  Height="600"
-
+                 
                  GlowBrush="{DynamicResource MahApps.Brushes.Accent}"
                  BorderThickness="1"
 
@@ -30,6 +32,7 @@
         <viewModels:ShellViewModel/>
     </mah:MetroWindow.DataContext>
 
+    <!--
     <mah:MetroWindow.LeftWindowCommands>
         <mah:WindowCommands ShowSeparators="False">
             <Button x:Name="GoBackButton"
@@ -37,11 +40,32 @@
                     AutomationProperties.Name="Go back"
                     Click="GoBack_OnClick">
                 <mah:FontIcon AutomationProperties.Name="Go back icon"
-                                   FontSize="14"
-                                   Glyph="&#xE72B;" />
+                              FontSize="14"
+                              Glyph="&#xE72B;" />
             </Button>
         </mah:WindowCommands>
     </mah:MetroWindow.LeftWindowCommands>
+    -->
+    
+    <mah:MetroWindow.RightWindowCommands>
+        <mah:WindowCommands ShowSeparators="True">
+            
+            <Button x:Name="TitleBarUserButton">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconFontAwesome Margin="4"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Top"
+                                                   Foreground="{DynamicResource MahApps.Brushes.Text}"
+                                                   Kind="UserAltSolid" />
+                    <Label x:Name="TitleBarUserButtonLabel"
+                        Content="UserName"/>
+                </StackPanel>
+            </Button>
+        </mah:WindowCommands>
+    </mah:MetroWindow.RightWindowCommands>
+
+
+    
 
     <mah:MetroWindow.Resources>
 

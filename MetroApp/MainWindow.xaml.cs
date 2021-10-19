@@ -7,6 +7,7 @@ using System.Windows.Navigation;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MetroApp.Naviganion;
+using MetroApp.ViewModels;
 using MenuItem = MetroApp.ViewModels.MenuItem;
 
 namespace MetroApp
@@ -17,12 +18,12 @@ namespace MetroApp
     public partial class MainWindow : MetroWindow
     {
         private readonly NavigationServiceEx navigationServiceEx;
+        private readonly CurrentUser currentUser;
 
         public MainWindow()
         {
-            //ShowLoginDialog(this, new RoutedEventArgs());
             InitializeComponent();
-
+            currentUser = new CurrentUser();
             ShowLoginDialog(this, new RoutedEventArgs());
 
             this.navigationServiceEx = new NavigationServiceEx();
@@ -35,53 +36,37 @@ namespace MetroApp
 
         private async void ShowLoginDialog(object sender, RoutedEventArgs e)
         {
-            //this.MetroDialogOptions.ColorScheme = UseAccentForDialogsMenuItem.IsChecked ? MetroDialogColorScheme.Accented : MetroDialogColorScheme.Theme;
-            LoginDialogData result = await this.ShowLoginAsync(title:"Авторизация", 
-                                                               message:"Введите логин и пароль",
-                                                               new LoginDialogSettings
-                                                               {
-                                                                   ColorScheme = this.MetroDialogOptions.ColorScheme,
-                                                                   NegativeButtonVisibility = Visibility.Visible,
-                                                                   AffirmativeButtonText = "Вход",
-                                                                   NegativeButtonText = "Выход",
-                                                                   UsernameWatermark = "Введите логин",
-                                                                   PasswordWatermark = "Введите пароль",
-                                                                   EnablePasswordPreview = true
-                                                               });
+            LoginDialogSettings settings = new LoginDialogSettings
+            {
+                ColorScheme = this.MetroDialogOptions.ColorScheme,
+                NegativeButtonVisibility = Visibility.Visible,
+                AffirmativeButtonText = "Вход",
+                NegativeButtonText = "Выход",
+                UsernameWatermark = "Введите логин",
+                PasswordWatermark = "Введите пароль",
+                EnablePasswordPreview = true
+            };
+            LoginDialogData result = await this.ShowLoginAsync(
+                title: "Авторизация", 
+                message: "Введите логин и пароль",
+                settings);
             if (result == null)
             {
                 this.Close();
             }
             else
             {
-                var a = false;
-                while (a == false)
+                while (currentUser.AuthUser(result.Username, result.Password))
                 {
-                    if (result.Username == "Admin" && result.Password == "Gfhjkm123!")
-                    {
-                        //MessageDialogResult messageResult = await this.ShowMessageAsync("Авторизация", "Вход успешно выполнен");
-                        a = true;
-                    }
-                    else
-                    {
-                        MessageDialogResult messageResult = await this.ShowMessageAsync("Авторизация", "Введены неверные логин или пароль");
-                        result = await this.ShowLoginAsync(title: "Авторизация",
-                                                               message: "Введите логин и пароль",
-                                                               new LoginDialogSettings
-                                                               {
-                                                                   ColorScheme = this.MetroDialogOptions.ColorScheme,
-                                                                   NegativeButtonVisibility = Visibility.Visible,
-                                                                   AffirmativeButtonText = "Вход",
-                                                                   NegativeButtonText = "Выход",
-                                                                   UsernameWatermark = "Введите логин",
-                                                                   PasswordWatermark = "Введите пароль",
-                                                                   EnablePasswordPreview = true
-                                                               });
-                    }
+                    MessageDialogResult messageResult = await this.ShowMessageAsync("Авторизация", "Введены неверные логин или пароль");
+                    result = await this.ShowLoginAsync(title: "Авторизация", message: "Введите логин и пароль",
+                        settings);
                 }
-                HamburgerMenuControl.Visibility = Visibility.Visible;
             }
+            TitleBarUserButtonLabel.Content = currentUser.User.Name;
+            HamburgerMenuControl.Visibility = Visibility.Visible;
         }
+
         private void HamburgerMenuControl_OnItemInvoked(object sender, HamburgerMenuItemInvokedEventArgs e)
         {
             if (e.InvokedItem is MenuItem menuItem && menuItem.IsNavigation)
@@ -113,7 +98,7 @@ namespace MetroApp
             //                                                     .FirstOrDefault(x => x.NavigationType == e.Content?.GetType());
 
             // update back button
-            this.GoBackButton.Visibility = this.navigationServiceEx.CanGoBack ? Visibility.Visible : Visibility.Collapsed;
+            //this.GoBackButton.Visibility = this.navigationServiceEx.CanGoBack ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void GoBack_OnClick(object sender, RoutedEventArgs e)
