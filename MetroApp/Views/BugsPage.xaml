@@ -5,20 +5,23 @@
       xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       Title="Bugs"
-      d:DesignHeight="300"
-      d:DesignWidth="300"
+      
       Style="{DynamicResource PageStyle}"
       mc:Ignorable="d">
 
-    <Grid>
-
-        <iconPacks:PackIconFontAwesome Width="48"
-                                       Height="48"
-                                       Margin="10"
-                                       HorizontalAlignment="Right"
-                                       VerticalAlignment="Top"
-                                       Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
-                                       Kind="BugSolid" />
+    <Grid Background="Green">
+        <StackPanel Background="Black" Height="48"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top">
+            <iconPacks:PackIconMaterial Width="28"
+                                        Height="28"
+                                        Margin="10"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Top"
+                                        Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
+                                        Kind="CityVariantOutline" />
+        </StackPanel>
+        
 
     </Grid>
 </Page>

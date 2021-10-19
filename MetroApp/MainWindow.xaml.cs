@@ -24,8 +24,8 @@ namespace MetroApp
         {
             InitializeComponent();
             currentUser = new CurrentUser();
-            ShowLoginDialog(this, new RoutedEventArgs());
-
+            //ShowLoginDialog(this, new RoutedEventArgs());
+            HamburgerMenuControl.Visibility = Visibility.Visible;
             this.navigationServiceEx = new NavigationServiceEx();
             this.navigationServiceEx.Navigated += this.NavigationServiceEx_OnNavigated;
             this.HamburgerMenuControl.Content = this.navigationServiceEx.Frame;
