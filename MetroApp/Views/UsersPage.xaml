@@ -5,8 +5,8 @@
       xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       Title="UsersPage"
-      d:DesignHeight="300"
-      d:DesignWidth="300"
+      d:DesignHeight="550"
+      d:DesignWidth="750"
       Style="{DynamicResource PageStyle}"
       mc:Ignorable="d">
 
@@ -19,6 +19,7 @@
                                        VerticalAlignment="Top"
                                        Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
                                        Kind="UserAltSolid" />
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="100" Margin="61,78,0,0" VerticalAlignment="Top" Width="581"/>
 
     </Grid>
 </Page>

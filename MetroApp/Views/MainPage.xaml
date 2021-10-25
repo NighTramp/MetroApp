@@ -14,16 +14,9 @@
                 Orientation="Vertical">
         <TextBlock Margin="24"
                HorizontalAlignment="Center"
-               FontSize="48"
-               Text="MahApps.Metro" />
-        <iconPacks:PackIconMaterial Width="128"
-                                    Height="128"
-                                    HorizontalAlignment="Center"
-                                    Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
-                                    Kind="Hamburger" />
+               FontSize="48" />
         <TextBlock Margin="24"
                    HorizontalAlignment="Center"
-                   FontSize="48"
-                   Text="Frame Navigation" />
+                   FontSize="48" />
     </StackPanel>
 </Page>
