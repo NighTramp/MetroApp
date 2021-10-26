@@ -4,10 +4,12 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Navigation;
+using ControlzEx.Theming;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MetroApp.Naviganion;
 using MetroApp.ViewModels;
+using MetroApp.Views;
 using MenuItem = MetroApp.ViewModels.MenuItem;
 
 namespace MetroApp
@@ -33,6 +35,7 @@ namespace MetroApp
             // Navigate to the home page.
             this.Loaded += (sender, args) => this.navigationServiceEx.Navigate(new Uri("Views/MainPage.xaml", UriKind.RelativeOrAbsolute));
         }
+
 
         private async void ShowLoginDialog(object sender, RoutedEventArgs e)
         {
@@ -63,8 +66,13 @@ namespace MetroApp
                         settings);
                 }
             }
-            TitleBarUserButtonLabel.Content = currentUser.User.Name;
-            HamburgerMenuControl.Visibility = Visibility.Visible;
+
+            if (result != null)
+            {
+                TitleBarUserButtonLabel.Content = currentUser.User.Name;
+                HamburgerMenuControl.Visibility = Visibility.Visible;
+            }
+            
         }
 
         private void HamburgerMenuControl_OnItemInvoked(object sender, HamburgerMenuItemInvokedEventArgs e)

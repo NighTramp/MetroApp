@@ -4,6 +4,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
       Title="UsersPage"
       d:DesignHeight="550"
       d:DesignWidth="750"
@@ -11,15 +12,300 @@
       mc:Ignorable="d">
 
     <Grid>
+        <Grid Background="{DynamicResource MahApps.Brushes.Control.Background}"
+                Margin="10 10 10 0"
+                VerticalAlignment="Top"
+                Height="40">
+            <Label HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   FontSize="22"
+                   Content="ПОЛЬЗОВАТЕЛИ"
+                   Foreground="{DynamicResource MahApps.Brushes.AccentBase}"/>
+            <iconPacks:PackIconFontAwesome Width="24"
+                                           Height="24"
+                                           Margin="8"
+                                           HorizontalAlignment="Right"
+                                           VerticalAlignment="Top"
+                                           Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
+                                           Kind="UserAltSolid"/>
+        </Grid>
 
-        <iconPacks:PackIconFontAwesome Width="48"
-                                       Height="48"
-                                       Margin="10"
-                                       HorizontalAlignment="Right"
-                                       VerticalAlignment="Top"
-                                       Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
-                                       Kind="UserAltSolid" />
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="100" Margin="61,78,0,0" VerticalAlignment="Top" Width="581"/>
+        <Grid Background="{DynamicResource MahApps.Brushes.Control.Background}"
+              Margin="10 60 10 0"
+              VerticalAlignment="Top"
+              Height="120">
+
+
+            <Button x:Name="SearchButton"
+                    Content="Найти"
+                    Height="30"
+                    Width="120"
+                    Margin="10 10 0 10"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    FontSize="12"
+                    Focusable="False"
+                    Foreground="{DynamicResource MahApps.Brushes.CheckBox}"
+                    BorderBrush="{DynamicResource MahApps.Brushes.Accent}" 
+                    mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
+
+            <TextBox x:Name="SearchTextBox"
+                     Margin="140 10 10 10"
+                     VerticalAlignment="Top"
+                     Height="30"
+                     FontSize="16"
+                     mah:TextBoxHelper.ClearTextButton="True"
+                     mah:TextBoxHelper.Watermark="Найти..."
+                     Foreground="{DynamicResource MahApps.Brushes.CheckBox}"
+                     BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                     mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
+
+            <RadioButton x:Name="userSearchfioRB"
+                         Content="По ФИО"
+                         FontSize="16"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Bottom"
+                         Margin="10 10 0 45"
+                         Height="30"
+                         Foreground="{DynamicResource MahApps.Brushes.CheckBox}"/>
+
+            <RadioButton x:Name="userSearchLoginRB"
+                         Content="По логинy"
+                         FontSize="16"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Bottom"
+                         Margin="10 10 0 10"
+                         Height="30"
+                         Foreground="{DynamicResource MahApps.Brushes.CheckBox}"/>
+
+            <ComboBox x:Name="searchFirstGroupCB"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Bottom"
+                      Margin="140 10 0 45"
+                      Height="30"
+                      Width="220"
+                      FontSize="16"
+                      Foreground="{DynamicResource MahApps.Brushes.CheckBox}"
+                      BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                      mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
+
+            <ComboBox x:Name="searchSecondGroupCB"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Bottom"
+                      Margin="140 10 0 10"
+                      Height="30"
+                      Width="220"
+                      FontSize="16"
+                      Foreground="{DynamicResource MahApps.Brushes.CheckBox}"
+                      BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                      mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
+
+        </Grid>
+
+        <Grid Margin="10 190 10 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0"
+                  Background="{DynamicResource MahApps.Brushes.Control.Background}"
+                  Margin="0 0 5 0"
+                  Width="360">
+
+                <Label HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       FontSize="22"
+                       Content="РЕДАКТОР"
+                       Foreground="{DynamicResource MahApps.Brushes.AccentBase}"/>
+
+                <Label HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="5 40 10 0"
+                       FontSize="14"
+                       Width="140"
+                       Height="30"
+                       Content="ФИО пользователя:"
+                       HorizontalContentAlignment="Right"
+                       Foreground="{DynamicResource MahApps.Brushes.AccentBase}"/>
+
+                <Label HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="5 80 10 0"
+                       FontSize="14"
+                       Width="140"
+                       Height="30"
+                       Content="Логин:"
+                       HorizontalContentAlignment="Right"
+                       Foreground="{DynamicResource MahApps.Brushes.AccentBase}"/>
+
+                <Label HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="5 120 10 0"
+                       FontSize="14"
+                       Width="140"
+                       Height="30"
+                       Content="Пароль:"
+                       HorizontalContentAlignment="Right"
+                       Foreground="{DynamicResource MahApps.Brushes.AccentBase}"/>
+
+                <Label HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="5 160 10 0"
+                       FontSize="14"
+                       Width="140"
+                       Height="30"
+                       Content="Повтор пароля:"
+                       HorizontalContentAlignment="Right"
+                       Foreground="{DynamicResource MahApps.Brushes.AccentBase}"/>
+
+                <Label HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="5 200 10 0"
+                       FontSize="14"
+                       Width="140"
+                       Height="30"
+                       Content="Первичные права:"
+                       HorizontalContentAlignment="Right"
+                       Foreground="{DynamicResource MahApps.Brushes.AccentBase}"/>
+
+                <Label HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="5 240 10 0"
+                       FontSize="14"
+                       Width="140"
+                       Height="30"
+                       Content="Вторичные права:"
+                       HorizontalContentAlignment="Right"
+                       Foreground="{DynamicResource MahApps.Brushes.AccentBase}"/>
+
+                <TextBox x:Name="a"
+                         Width="200"
+                         Height="30"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Right"
+                         Margin="10 40 10 0"
+                         mah:TextBoxHelper.ClearTextButton="True"
+                         mah:TextBoxHelper.Watermark="ФИО"
+
+                         BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                         mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
+
+                <TextBox x:Name="aa"
+                         Width="200"
+                         Height="30"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Right"
+                         Margin="10 80 10 0"
+                         mah:TextBoxHelper.ClearTextButton="True"
+                         mah:TextBoxHelper.Watermark="Логин"
+                         BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                         mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
+
+                <TextBox x:Name="aaa"
+                         Width="200"
+                         Height="30"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Right"
+                         Margin="10 120 10 0"
+                         mah:TextBoxHelper.ClearTextButton="True"
+                         mah:TextBoxHelper.Watermark="Пароль"
+                         BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                         mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
+
+                <TextBox x:Name="aaaa"
+                         Width="200"
+                         Height="30"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Right"
+                         Margin="10 160 10 0"
+                         mah:TextBoxHelper.ClearTextButton="True"
+                         mah:TextBoxHelper.Watermark="Подтвердить пароль"
+                         BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                         mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
+
+                <ComboBox x:Name="userChangeFirstGroupCB"
+                          Width="200"
+                          Height="30"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Right"
+                          Margin="10 200 10 0"
+                          FontSize="16"
+                          BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                          mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
+
+                <ComboBox x:Name="userChangeSecondGroupCB"
+                          Width="200"
+                          Height="30"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Right"
+                          Margin="10 240 10 0"
+                          FontSize="16"
+                          BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                          mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
+
+                <Button x:Name="userCreateButton"
+                        Content="Создать нового пользователя"
+                        Height="40"
+                        Width="340"
+                        Margin="10 320 10 0"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        FontSize="12"
+                        Focusable="False"
+                        Foreground="{DynamicResource MahApps.Brushes.CheckBox}"
+                        BorderBrush="{DynamicResource MahApps.Brushes.Accent}" 
+                        mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
+
+                <Button x:Name="userChangeButton"
+                        Content="Сохранить изменения"
+                        Height="30"
+                        Width="200"
+                        Margin="10 280 10 0"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right"
+                        FontSize="12"
+                        Focusable="False"
+                        Foreground="{DynamicResource MahApps.Brushes.CheckBox}"
+                        BorderBrush="{DynamicResource MahApps.Brushes.Accent}" 
+                        mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
+
+                <Button x:Name="userCleanButtom"
+                        Content="Очистить поля"
+                        Height="30"
+                        Width="130"
+                        Margin="10 280 10 0"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        FontSize="12"
+                        Focusable="False"
+                        Foreground="{DynamicResource MahApps.Brushes.CheckBox}"
+                        BorderBrush="{DynamicResource MahApps.Brushes.Accent}" 
+                        mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
+
+
+            </Grid>
+
+            <DataGrid Grid.Column="1"
+                      x:Name="dataGrid"
+                      Margin="5 0 0 0"
+                      AutoGenerateColumns="False"
+                      FontSize="16"
+                      IsReadOnly="True"
+                      GridLinesVisibility="Horizontal"
+                      Foreground="{DynamicResource MahApps.Brushes.CheckBox}"
+                      HorizontalGridLinesBrush="{DynamicResource MahApps.Brushes.Accent}"
+                      VerticalGridLinesBrush="{DynamicResource MahApps.Brushes.Accent}" 
+                      SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Name}" Header="ФИО"/>
+                    <DataGridTextColumn Binding="{Binding Login}" Header="Логин"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            
+        </Grid>
+
+        
 
     </Grid>
 </Page>
