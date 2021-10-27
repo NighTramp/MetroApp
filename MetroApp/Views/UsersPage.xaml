@@ -36,7 +36,7 @@
               Height="120">
 
 
-            <Button x:Name="SearchButton"
+            <Button x:Name="UserSearchButton"
                     Content="Найти"
                     Height="30"
                     Width="120"
@@ -49,7 +49,7 @@
                     BorderBrush="{DynamicResource MahApps.Brushes.Accent}" 
                     mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
 
-            <TextBox x:Name="SearchTextBox"
+            <TextBox x:Name="UserSearchTextBox"
                      Margin="140 10 10 10"
                      VerticalAlignment="Top"
                      Height="30"
@@ -60,16 +60,17 @@
                      BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
                      mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
 
-            <RadioButton x:Name="userSearchfioRB"
+            <RadioButton x:Name="UserSearchFIORadioButton"
                          Content="По ФИО"
                          FontSize="16"
                          HorizontalAlignment="Left"
                          VerticalAlignment="Bottom"
                          Margin="10 10 0 45"
                          Height="30"
+                         IsChecked="True"
                          Foreground="{DynamicResource MahApps.Brushes.CheckBox}"/>
 
-            <RadioButton x:Name="userSearchLoginRB"
+            <RadioButton x:Name="UserSearchLoginRadioButton"
                          Content="По логинy"
                          FontSize="16"
                          HorizontalAlignment="Left"
@@ -78,7 +79,7 @@
                          Height="30"
                          Foreground="{DynamicResource MahApps.Brushes.CheckBox}"/>
 
-            <ComboBox x:Name="searchFirstGroupCB"
+            <ComboBox x:Name="UserSearchPrimaryRoleComboBox"
                       HorizontalAlignment="Left"
                       VerticalAlignment="Bottom"
                       Margin="140 10 0 45"
@@ -89,7 +90,7 @@
                       BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
                       mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
 
-            <ComboBox x:Name="searchSecondGroupCB"
+            <ComboBox x:Name="UserSearchSecondaryRoleComboBox"
                       HorizontalAlignment="Left"
                       VerticalAlignment="Bottom"
                       Margin="140 10 0 10"
@@ -179,7 +180,7 @@
                        HorizontalContentAlignment="Right"
                        Foreground="{DynamicResource MahApps.Brushes.AccentBase}"/>
 
-                <TextBox x:Name="a"
+                <TextBox x:Name="UserFIOTextBox"
                          Width="200"
                          Height="30"
                          VerticalAlignment="Top"
@@ -191,7 +192,7 @@
                          BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
                          mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
 
-                <TextBox x:Name="aa"
+                <TextBox x:Name="UserLoginTextBox"
                          Width="200"
                          Height="30"
                          VerticalAlignment="Top"
@@ -202,7 +203,7 @@
                          BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
                          mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
 
-                <TextBox x:Name="aaa"
+                <TextBox x:Name="UserPasswordTextBox"
                          Width="200"
                          Height="30"
                          VerticalAlignment="Top"
@@ -213,7 +214,7 @@
                          BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
                          mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
 
-                <TextBox x:Name="aaaa"
+                <TextBox x:Name="UserConfirmPasswordTextBox"
                          Width="200"
                          Height="30"
                          VerticalAlignment="Top"
@@ -224,7 +225,7 @@
                          BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
                          mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
 
-                <ComboBox x:Name="userChangeFirstGroupCB"
+                <ComboBox x:Name="UserChangePrimaryRoleComboBox"
                           Width="200"
                           Height="30"
                           VerticalAlignment="Top"
@@ -232,9 +233,10 @@
                           Margin="10 200 10 0"
                           FontSize="16"
                           BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
-                          mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
+                          mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                          ItemsSource="{Binding }"/>
 
-                <ComboBox x:Name="userChangeSecondGroupCB"
+                <ComboBox x:Name="UserChangeSecondaryRoleComboBox"
                           Width="200"
                           Height="30"
                           VerticalAlignment="Top"
@@ -244,7 +246,7 @@
                           BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
                           mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
 
-                <Button x:Name="userCreateButton"
+                <Button x:Name="UserCreateButton"
                         Content="Создать нового пользователя"
                         Height="40"
                         Width="340"
@@ -257,7 +259,7 @@
                         BorderBrush="{DynamicResource MahApps.Brushes.Accent}" 
                         mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
 
-                <Button x:Name="userChangeButton"
+                <Button x:Name="UserChangeButton"
                         Content="Сохранить изменения"
                         Height="30"
                         Width="200"
@@ -270,7 +272,7 @@
                         BorderBrush="{DynamicResource MahApps.Brushes.Accent}" 
                         mah:ControlsHelper.FocusBorderBrush="{DynamicResource MahApps.Brushes.Accent}"/>
 
-                <Button x:Name="userCleanButtom"
+                <Button x:Name="UserCleanButtom"
                         Content="Очистить поля"
                         Height="30"
                         Width="130"
@@ -287,7 +289,7 @@
             </Grid>
 
             <DataGrid Grid.Column="1"
-                      x:Name="dataGrid"
+                      x:Name="UserDataGrid"
                       Margin="5 0 0 0"
                       AutoGenerateColumns="False"
                       FontSize="16"

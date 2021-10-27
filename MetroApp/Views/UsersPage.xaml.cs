@@ -16,7 +16,14 @@ namespace MetroApp.Views
             InitializeComponent();
             db = new ApplicationContext();
             db.Users.Load();
-            dataGrid.ItemsSource = db.Users.Local.ToBindingList();
+            db.PrimaryRoles.Load();
+            db.SecondaryRoles.Load();
+            //UserDataGrid.ItemsSource = db.Users.Local.ToBindingList();
+            UserSearchPrimaryRoleComboBox.ItemsSource = db.PrimaryRoles.Local.
+            UserChangePrimaryRoleComboBox.ItemsSource = db.PrimaryRoles.Local.ToBindingList();
+
+            UserSearchSecondaryRoleComboBox.ItemsSource = db.SecondaryRoles.Local.ToBindingList();
+            UserChangeSecondaryRoleComboBox.ItemsSource = db.SecondaryRoles.Local.ToBindingList();
 
 
 

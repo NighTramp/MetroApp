@@ -191,6 +191,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\PrimaryRoles.cs" />
+    <Compile Include="Model\SecondaryRoles.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Mvvm\ApplicationContext.cs" />
     <Compile Include="Mvvm\BindableBase.cs" />
